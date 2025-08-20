@@ -1,0 +1,547 @@
+Octagon:
+"Octagon" in this context refers to a specific technology or tool that is used in conjunction with React JS.
+Given the pairing with React JS, Octagon is likely either:
+
+A custom-built internal framework or library within a company that integrates with React.
+A specialized tool or platform used for development, testing, deployment, or project management in a React environment.
+A less common or niche third-party library or service that a particular organization utilizes alongside React.
+
+1.	What is Redux: A predictable state management library for JavaScript apps, often used with React to manage global state through actions, reducers, and a centralized store.
+2.	React Router: Library for handling client-side routing in React, enabling navigation between components without full page reloads.
+3.	Functional and Class Components: Functional components are simple, stateless (before hooks) and use functions; class components have state and lifecycle methods.
+4.	React Hooks: Functions like useState, useEffect, useReducer that let functional components manage state and side effects.
+5.	Previous Projects Architecture: Microfrontend architecture with React/Angular frontends, Node.js backend services, REST/GraphQL APIs, AWS deployment, and centralized state management using Redux.
+6.	Lifecycle Methods: Methods like componentDidMount, componentDidUpdate, componentWillUnmount in class components for managing component lifecycle; useEffect in functional components serves similar purposes.
+7.	Props: Read-only inputs passed from parent to child components to customize rendering or behavior.
+8.	Real and Virtual DOM: Real DOM is the actual browser DOM; Virtual DOM is a lightweight React representation that enables efficient updates through diffing.
+9.	Previous Project High-End Overview: Built a scalable, cloud-deployed web app with React front-end, Node.js backend, GraphQL APIs, Redux for state, and responsive UI with data visualizations.
+10.	React Usage in Previous Project: Developed dynamic UIs, reusable components, and dashboards. Used Redux for state management across modules, Axios for API calls, and testing with Jest and RTL.
+
+
+11.	Context API, Formik, React Hook Forms, Props, Fetch API, Axios: Used for scenarios like navigation (Home → Login), shopping cart, and payment flows. React Hook Forms with Yup handled dynamic forms and validation.
+12.	Git commands: git merge and git rebase for feature integration and history management.
+13.	Dynamic forms: React Hook Form with Yup validation; approach involves reading the ticket, analyzing fields, and updating form logic.
+14.	Analyzing tasks/structuring work: Break task into UI components, API interactions, and validations; e.g., prescription form—define inputs, validations, error handling, API integration.
+15.	End-to-end architecture: Frontend in React/Angular, backend in Node.js/NestJS, state management with Redux/Context, APIs via REST/GraphQL, deployed on AWS with S3, Lambda, CloudWatch.
+16.	Unit testing: Jest/RTL for components, mocked APIs, tested state changes and form behavior.
+17.	Prevent duplicate API calls: Debounce/throttle calls, check for pending requests, or manage state to prevent repeated submissions.
+18.	UI ticket with backend interaction: Identify required endpoints, data formats, authentication, error handling; coordinate with backend on response structure and edge cases.
+19.	String reverse in JS:
+•	With inbuilt: str.split('').reverse().join('')
+•	Without inbuilt:
+•	function reverseString(str) {
+•	    let reversed = '';
+•	    for (let i = str.length - 1; i >= 0; i--) {
+•	        reversed += str[i];
+•	    }
+•	    return reversed;
+•	}
+20.	let vs const: let allows reassignment; const is immutable reference.
+
+21.	Scope: Block, function, and global scope determine variable visibility and lifetime.
+22.	HTML tags: Used semantic tags like <div>, <section>, <header>, <form>, <input>, <button>, <table>.
+23.	Session storage/local storage: Store data in browser; session storage clears on tab close, local storage persists.
+24.	TypeScript basics:
+•	Union vs Intersection: type A = string | number vs type B = {x: number} & {y: string}
+•	readonly vs ReadonlyArray: Immutable property vs immutable array
+•	Type vs Interface: Type aliases for primitives/unions/intersections; interfaces define object shapes and can be extended.
+25.	CI/CD: Continuous Integration runs automated builds/tests; Continuous Deployment pushes to production. Project setup included GitHub Actions for CI and AWS CodePipeline for CD.
+26.	Version control: Git for branching, merging, rebasing, release management.
+27.	Error boundaries: React components that catch JS errors in children and display fallback UI.
+28.	React Provider: Provides state or context to child components without prop drilling.
+29.	Redux: Centralized state management using store, actions, and reducers.
+30.	Reducer: Pure function taking current state + action → returns new state.
+
+31.	Middleware: Intercepts actions before reaching reducers (e.g., Redux Thunk for async calls).
+32.	Pass data between components using Redux: Input updates state via action → reducer updates store → output component subscribes to store and receives updated state.
+33.	Same with Context:
+const MyContext = React.createContext();
+function Provider({children}) {
+    const [value, setValue] = useState('');
+    return <MyContext.Provider value={{value, setValue}}>{children}</MyContext.Provider>
+}
+function Input() {
+    const {setValue} = useContext(MyContext);
+    return <input onChange={e => setValue(e.target.value)} />;
+}
+function Output() {
+    const {value} = useContext(MyContext);
+    return <div>{value}</div>;
+}
+34.	Refactor component with >50 props: Group props into objects, use context, or break component into smaller child components to reduce prop drilling.
+
+
+===========
+
+1. united airlines what is your role
+I am a core UI Developer with 10+ years of experience building .com websites for different organizations using HTML5, CSS3, JavaScript, React.js, and Redux. 
+In the past 2 years, I worked on the React migration team, where I converted the .net pages to react on united.com. 
+Frontend is React, and used ATMOS (Own library) components used company wide.
+
+used middleware such as redux-saga to handle asynchronous tasks such as API calls, data fetching, and impure actions in a more organized and efficient way.
+
+Worked on Security features for users where they can manage there account like Forgot password, Forgot MileagePlus number, security questions, Sign-in features, Miles-Pooling, United Club pass,  Recent Activity, dashboard updates and KTN(Known Traveler Number), Accessibility guidelines features on united.com.
+
+The new initiative worked on Miles-Pooling( points you get after traveling), TSA Precheck, Account security and management features, and Under18.
+
+2. React standalone components
+Reusable, isolated pieces of UI that don’t depend on global state. Props in/out, no hidden side effects.
+
+3. Redux vs Zustand
+Redux → predictable, boilerplate heavy, great for large apps.
+Zustand → lightweight, minimal API, easier setup, simpler for smaller/mid apps.
+
+4. Can we mix Redux with Zustand?
+Yes. You can use Redux for global/shared state and Zustand for local/feature-specific state.
+
+5. Values between micro frontends
+Shared via event bus, custom DOM events, or shared storage (localStorage/sessionStorage/Context APIs exposed).
+
+6. State management in micro frontends
+Decentralized. Each microfrontend manages its own state. For shared state, use cross-frontend store (Redux, Zustand) or message bus.
+
+7. Tools for microfrontend
+Webpack Module Federation, Single-SPA, Nx, Bit, Lerna.
+
+8. Microfrontend architecture in React
+Each team builds independently deployable React apps, stitched together using Module Federation or a container shell.
+
+9. Publishing npm library
+Build reusable components → bundle with Rollup/Webpack → version and publish to npm (public or private registry).
+
+10. Service impact during migration
+Need backward compatibility. Old services must support both old (.NET) and new (React) clients until migration is complete.
+
+11. Architecting .NET component to React
+Break monolith UI into React components. Mirror business logic in APIs, keep UI logic in React.
+
+12. .NET component equivalent in React
+.NET user controls map to React components. Shared libraries map to npm packages.
+
+13. Rendering mechanism .NET vs React
+.NET (Razor/WebForms) → server-side rendering.
+React → client-side rendering (with option for SSR using Next.js).
+
+14. Why choose React?
+Component-based, fast virtual DOM, strong ecosystem, reusable, easier scaling compared to tightly coupled server-side rendering.
+
+15. Migrating .NET → React: evaluating components
+Identify reusable UI patterns, decouple business logic into APIs, convert UI to React functional components.
+
+16. Best practice for token storage
+Short-lived access token in memory, refresh token in httpOnly cookie. Avoid localStorage for security.
+
+17. Where it’s stored?
+Access token → memory (Redux/Zustand).
+Refresh token → secure httpOnly cookie.
+
+18. PKCE flow
+PKCE = Proof Key for Code Exchange. Adds code verifier + challenge to OAuth for securing SPA/public clients.
+
+19. OAuth flow library used?
+oidc-client-ts, react-oauth2-pkce, or Auth0 SDKs.
+
+20. Difference between .NET vs React architecture
+.NET → monolithic, server-rendered, tightly coupled UI + backend.
+React → client-side, component-driven, API-first, decoupled from backend.
+
+=======================================
+
+Technical interview: ventleytech/capgemini/comcast
+
+1. current project explain?
+2. In RTL what is act?
+act() ensures all React updates (state, effects) are flushed before making assertions. It wraps test code so you don’t get warnings about async updates.
+
+3. Which testing libraries did you use?
+Jest for test runner, React Testing Library for component testing, Enzyme for legacy, Cypress/Playwright for end-to-end.
+
+4. i18n? how did you implement in frontend?
+Used react-i18next. Wrapped app in I18nextProvider, created translation JSON files per locale, switched language dynamically using the hook useTranslation.
+
+5. What is the build tool you used for United?
+Webpack 5 with Module Federation for microfrontends. Also used Babel + ESLint integrated into the build.
+
+6. How did you add validation to input fields in React?
+Two approaches:
+
+Controlled components with custom validation logic.
+
+Libraries like Formik + Yup or react-hook-form for schema-based validation.
+
+7. Authentication mechanism did you use in United?
+OAuth2 with PKCE. Access token stored in memory, refresh token in secure httpOnly cookie. Used oidc-client-ts for flow handling.
+
+
+========
+
+## Interview Questions & Answers (Short)
+
+### 1. Introduce yourself? Total years of experience?
+
+I’m a Full Stack UI Developer with **12+ years of experience**, skilled in React, Angular, JavaScript, TypeScript, Node.js, and AWS-based microservices.
+
+---
+
+### 2. JavaScript is synchronous or asynchronous?
+
+JavaScript is **synchronous by default**, but supports **asynchronous behavior** using callbacks, Promises, and `async/await`.
+
+---
+
+### 3. What is asynchronous call? How to make async call?
+
+An asynchronous call runs in the background without blocking the main thread.  
+You can make one using:
+
+- `setTimeout`
+- `fetch` (returns a Promise)
+- `async/await`
+
+---
+
+### 4. Callback?
+
+A **callback** is a function passed into another function as an argument, to be executed later after an operation completes.
+
+---
+
+### 5. Callback hell?
+
+Occurs when callbacks are nested within callbacks, making code messy and unreadable.  
+**Solution**: Use Promises or `async/await` for cleaner, linear flow.
+
+---
+
+### 6. call, apply, bind? Where did you use?
+
+Call(), Apply(), bind()
+
+Call() -- if we want to create second memory location will interact with 1st memory location.
+
+Apply – if we want to pass array instead of independent parameter
+
+Bind() - merge memory location 1 and memory location 2 -->merge 2 memory locations-->new memory location.
+
+What is the USE? Call function advanced function APPLY, call and apply advanced version is bind().
+Purpose is same. Call, bind, apply –used to access 2 objects in different memory location
+
+
+Used to control the `this` context inside functions.
+
+- `call()`: Calls a function with a specified `this` and arguments.
+- `apply()`: Like `call`, but takes arguments as an array.
+- `bind()`: Returns a new function with bound `this`.
+
+**Used `bind`** in React class components to bind event handlers.
+call() — For function borrowing, apply() — When args are in an array, 3. bind() — To fix this in advance
+
+## Interview Questions & Answers (Part 2)
+
+### 7. Coding Question
+
+```js
+const test = [[1, 2, 3], [4, 5, [5, false, 6, [5, 8, null]]], [6]];
+
+function flattenArray(arr) {
+  const result = [];
+
+  function helper(subArr) {
+    for (let item of subArr) {
+      if (Array.isArray(item)) {
+        helper(item);
+      } else {
+        result.push(item);
+      }
+    }
+  }
+
+  helper(test);
+  console.log(result);
+}
+```
+
+## Interview Questions & Answers (8–15)
+
+### 8. React: Functional or Class — which have you used?
+
+I’ve primarily used **functional components** with hooks in recent projects. I’ve also worked with **class components** in legacy codebases.
+
+---
+
+### 9. State management — how did you achieve it?
+
+- For local state: `useState`, `useReducer`
+- For shared/global state: Redux Toolkit, Context API
+- For async/server state: React Query
+- Also used Zustand in a lightweight scenario
+
+---
+
+### 10. Have you worked on class components?
+
+Yes. I’ve used class components in earlier projects and worked with lifecycle methods like `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount`.
+
+---
+
+### 11. Lifecycle Methods Using Hooks (equivalent to Class)
+
+```js
+// componentDidMount
+useEffect(() => {
+  // code to run on mount
+}, []);
+
+// componentDidUpdate
+useEffect(() => {
+  // code to run on update
+}, [dependency]);
+
+// componentWillUnmount
+useEffect(() => {
+  return () => {
+    // cleanup code
+  };
+}, []);
+```
+
+## Interview Questions & Answers (12–15)
+
+### 12. Hooks — have you worked with them? Which?
+
+Yes. I’ve worked with the following hooks:
+
+- `useState` – for managing local state
+- `useEffect` – for side effects and lifecycle behavior
+- `useContext` – for accessing shared context
+- `useRef` – for referencing DOM elements or storing mutable values
+- `useReducer` – for complex state logic
+- `useMemo` – to memoize expensive computations
+- `useCallback` – to memoize functions
+
+---
+
+### 13. useMemo vs useCallback — Difference?
+
+| Hook          | Purpose                                | Returns  |
+| ------------- | -------------------------------------- | -------- |
+| `useMemo`     | Caches the **result** of a computation | Value    |
+| `useCallback` | Caches the **function** itself         | Function |
+
+- Use `useMemo` to avoid re-calculating expensive values unless dependencies change.
+- Use `useCallback` to avoid recreating functions on each render, especially when passing them to child components.
+
+---
+
+### 14. How to pass data from child to parent?
+
+You pass a callback from parent to child. The child calls that function with the data:
+
+```js
+// Parent
+const handleData = (value) => setState(value);
+<Child onSendData={handleData} />;
+
+// Child
+props.onSendData("data from child");
+```
+
+### 15. Other than Redux and Context — how to manage state?
+
+Here are alternative ways to manage state in React:
+
+- **Zustand** – A small, fast, and scalable global state management library without boilerplate.
+- **Jotai** – Atomic state model. Each piece of state is an individual unit (atom) that can be shared.
+- **Recoil** – Provides fine-grained state control using atoms/selectors. Good for complex global state needs.
+- **React Query (TanStack Query)** – Manages **server state** like API data: caching, fetching, updating.
+- **useReducer + Context** – Combine both to create a basic global state system without external libs.
+
+<!-- const test = [[1, 2, 3], [4, 5, [5, false, 6, [5, 8, null]]], [6]]
+//convert array to single array without flat method
+
+const flattAray = (arr) => {
+const result = [];
+
+    for (const item of arr) {
+        if (Array.isArray(item)) {
+            result.push(...flattAray(item));
+        } else {
+            result.push(item);
+        }
+    }
+
+    return result;
+
+}
+console.log(flattAray(test)); -->
+
+=============================
+
+## 1. Introduce Yourself?
+
+I'm a Full Stack UI Developer with 12+ years of experience building scalable, accessible, and performant web apps. My stack includes React, Angular, Node.js, TypeScript, Redux, GraphQL, and AWS services.
+
+## 2. Did You Work on Agile Methodology?
+
+Yes. Participated in daily stand-ups, sprint planning, backlog grooming, retrospectives. Worked closely with product owners and QA in 2-week sprint cycles.
+
+## 3. How Did You Mentor Peers?
+
+Conducted onboarding sessions, paired programming, architecture walkthroughs, and regular knowledge-sharing meetings. Reviewed code and helped improve code quality and best practices.
+
+## 4. Code Review?
+
+Yes. Focused on readability, performance, security, modularity, and adherence to project standards. Used GitHub/Bitbucket for PR reviews and comments.
+
+## 5. BFF (Backend for Frontend)?
+
+Yes. Created custom Node.js/GraphQL layers to aggregate and shape data for specific frontend needs, improving performance and reducing client-side logic.
+
+## 6. MFA (Multi-Factor Authentication)?
+
+Implemented MFA using Auth0 and AWS Cognito. Supported SMS, email OTP, and authenticator apps for secure logins.
+
+## 7. BFS (Breadth First Search)?
+
+Algorithm to traverse nodes level by level. Use a queue for implementation. Common in trees, graphs, pathfinding problems.
+
+## 8. Coding Question – JSON
+
+Use `fetch("https://dummyjson.com/products")` in React or Node.js to retrieve products and display them using `.map()` or render in table/grid.
+
+## 9. Performance Improvement in React.js?
+
+Used `React.memo`, `useMemo`, `useCallback`, lazy loading, dynamic imports, code splitting, image optimization, and limiting re-renders by lifting state wisely.
+
+## 10. Redux? Which One Did You Work On?
+
+Worked on both classic Redux with `redux-thunk` and modern `Redux Toolkit` (RTK). Prefer RTK for its cleaner syntax, built-in immer, and easier boilerplate reduction.
+
+## React.js Component: Product Table from API
+
+### ✅ Requirements:
+
+- API: `https://dummyjson.com/products`
+- Display: `title`, `brand`, `rating`
+- Sort: by `title` in ascending order
+- Feature: Add delete button per row
+
+---
+
+### 📦 Dependencies:
+
+- React (`useState`, `useEffect`)
+
+---
+
+### 🧠 Logic:
+
+1. Fetch product data on mount using `useEffect`.
+2. Sort the products by `title` (A-Z) using `localeCompare`.
+3. Store the result in local state (`products`).
+4. Render data in a `<table>`.
+5. Add a **Delete** button that filters out the product from local state.
+
+---
+
+### 💻 Code:
+
+```jsx
+import React, { useEffect, useState } from 'react';
+
+function ProductTable() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/products')
+      .then(res => res.json())
+      .then(data => {
+        const sorted = [...data.products].sort((a, b) =>
+          a.title.localeCompare(b.title)
+        );
+        setProducts(sorted);
+      });
+  }, []);
+
+  const handleDelete = (id) => {
+    setProducts(prev => prev.filter(product => product.id !== id));
+  };
+
+  return (
+    <div>
+      <h2>Product Table</h2>
+      <table border="1" cellPadding="10">
+        <thead>
+          <tr>
+            <th>Title (A-Z)</th>
+            <th>Brand</th>
+            <th>Rating</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {products.map(({ id, title, brand, rating }) => (
+            <tr key={id}>
+              <td>{title}</td>
+              <td>{brand}</td>
+              <td>{rating}</td>
+              <td>
+                <button onClick={() => handleDelete(id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+export default ProductTable;
+
+<!--
+
+
+import React, { useState, useEffect } from 'react';
+
+export function App(props) {
+const [data, setData] = useState([]);
+const onSortClick = () => {
+setData([...data.sort((a, b) => a.title.localeCompare(b.title))]);
+};
+const onDeleteClick =() =
+useEffect(() => {
+fetch('https://dummyjson.com/products').then(res => res.json()).then((res) => setData(res.products))
+}, []);
+
+return (
+<div className='App'>
+<h1>Hello React.</h1>
+<h2>Start editing to see some magic happen!</h2>
+<table>
+<thead>
+<tr>
+<th onClick={onSortClick}>Title</th>
+<th>Brand</th>
+<th>Rating</th>
+</tr>
+</thead>
+<tbody>
+{data?.map(item => {
+return <tr key={item.id}>
+<td>{item.title}</td>
+<td>{item.brand}</td>
+<td>{item.rating}</td>
+<td><button onClick={() => onDelecteClick(item.id)}>Delete</button></td>
+</tr>
+})}
+</tbody>
+</table>
+</div>
+);
+}
+
+// Log to console
+console.log('Hello console')
+```
+
+-->
