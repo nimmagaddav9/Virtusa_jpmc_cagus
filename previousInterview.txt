@@ -6,6 +6,11 @@ A custom-built internal framework or library within a company that integrates wi
 A specialized tool or platform used for development, testing, deployment, or project management in a React environment.
 A less common or niche third-party library or service that a particular organization utilizes alongside React.
 
+React-Octagon library
+There is an NPM package called react-octagon, a React component library built on top of Semantic UI React npm. 
+But it’s not popular (last published 7 years ago), and likely not used in modern stacks.
+
+
 1.	What is Redux: A predictable state management library for JavaScript apps, often used with React to manage global state through actions, reducers, and a centralized store.
 2.	React Router: Library for handling client-side routing in React, enabling navigation between components without full page reloads.
 3.	Functional and Class Components: Functional components are simple, stateless (before hooks) and use functions; class components have state and lifecycle methods.
