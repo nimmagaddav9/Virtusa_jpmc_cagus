@@ -1,6 +1,0 @@
-1. introduce yourself?
-2. Hooks?
-3. sum(3,4,5)
-4. custom hooks for sorting
-5. Why useMemo, useCallback
-6. scenarios for using use memo in react
